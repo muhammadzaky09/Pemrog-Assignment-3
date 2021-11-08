@@ -1,0 +1,64 @@
+// Third Assignment
+// IUP3 Programming Course
+// Lecturer : Wahyono Ph.D
+//
+// Student Name      : Muhammad Zaky Firdaus
+// Student ID Number : 21/477171/PA/20637
+//
+// f(5) = 5*(4/2)*3*(2/2)*1
+// f(7) = 7*(6/2)*5*(4/2)*3*(2/2)*1
+//
+// You must create them using recursive approach,
+// and provide an explanation in top of program using comment.
+//
+// Source Code Explanation
+//
+// From above function example,
+// A Formula can be derived.
+//
+// For n >= 2,
+// The function formula is : f(n) = n * ((n-1)/2) * f((n-2)/2)
+//
+// For n == 2,
+// The function formula is : f(n) = n * ((n-1)/2)
+//                           f(2) = 2 * ((2-1)/2)
+//                           f(2) = 1
+//
+// For n == 1,
+// The function is f (n) = 1
+//
+// For other value input is invalid (only positive integer)
+//
+// Source code :
+
+#include <iostream>
+
+using namespace std;
+
+double recursiveFunction(double n){
+    if(n>0 && n<= 2 ){
+        return 1;
+
+    }else if(n<0){
+        cout << "Invalid Input";
+        return 0;
+
+    }
+    else{
+        return n * ((n-1)/2) * recursiveFunction(n-2);
+    }
+}
+
+void tampilkan(int n){
+    cout << recursiveFunction(n) << endl;
+
+}
+
+int main()
+{
+int n;
+cout << "Input Positive Integer : ";
+cin  >> n;
+tampilkan(n);
+    return 0;
+}
